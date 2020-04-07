@@ -1,8 +1,7 @@
-cd src_files
-tar_files=`find . -name '*.tar.gz'`
+#!/bin/sh
+zip_files=`find . -name '*.zip'`
 
-for tar_file in $tar_files;
+for zip_file in $zip_files;
 do
-    tar xzf $tar_file
-    rm -f $tar_file
+    unzip -d "$tar_file" $tar_file
 done;

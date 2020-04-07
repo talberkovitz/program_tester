@@ -2,3 +2,7 @@
 src_files/*
 result.csv
 .vscode/**
+
+.idea/
+
+.DS_Store
