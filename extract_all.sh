@@ -1,7 +1,7 @@
 #!/bin/sh
 zip_files=`find . -name '*.zip'`
 
-for zip_file in $zip_files;
+for zip_file in *.zip;
 do
-    unzip -d "$tar_file" $tar_file
+    unzip -d "${zip_file:0:$((${#zip_file} - 4))}" "$zip_file"
 done;
