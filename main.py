@@ -6,17 +6,19 @@ sys.path.append('tests')
 from assignment1 import tests
 
 
-SRC_DIR = "../0512182001"
+SRC_DIR = "../0512182001_Fix_compile"
+# SRC_DIR = "../0512182001"
 # SRC_DIR = "src_files"
 
 
 def main():
     tester = Tester(tests)
-    for student in os.listdir(SRC_DIR):
-        if(os.path.isdir(SRC_DIR+'/'+student) == False):
+    dirs = sorted(os.listdir(SRC_DIR))
+    for i, dir in enumerate(dirs, start=1):
+        if(os.path.isdir(SRC_DIR+'/'+dir) == False):
             continue
-        print("Testing student {}: ".format(student), end='')
-        tester.test(student, os.path.join(SRC_DIR, student))
+        print("({:>3}/{:>3}) Testing student {}: ".format(i,len(dirs),dir), end='')
+        tester.test(dir, os.path.join(SRC_DIR, dir))
 
     print("Creating report")
     tester.report_results()

@@ -14,23 +14,22 @@ class Tester:
 
     def test(self, student, path):
         for q_num, tests in enumerate(self.tests):
-            try:
-                q_name = "/q{}".format(q_num+1)
-                with Program(path+q_name) as prog:
-                    try:
-                        prog.compile()
-                    except RuntimeWarning as e:
-                        print("[\033[93m{}\033[0m] ".format(str(e)), end="")
-
-                    for _, args, inputs, expect in tests:
-                        res = self._run_test(prog, args, inputs, expect)
-                        print(
-                            "\033[92m.\033[0m" if res else "\033[91mX\033[0m", end="")
-                        self.results[student][q_name].append("PASS" if res else "FAIL")
-            except RuntimeError as e:
-                print("\033[91m{}\033[0m".format(str(e)))
-                self.results[student][q_name].append(str(e))
-                break
+            q_name = "/q{}".format(q_num+1)
+            with Program(path+q_name) as prog:
+                try:
+                    prog.compile()
+                except RuntimeWarning as e:
+                    print("[\033[93mW\033[0m]", end="")
+                except RuntimeError as e:
+                    for t in tests:
+                        print("\033[91mF\033[0m", end="")
+                        self.results[student][q_name].append(str(e))
+                    continue
+                for _, args, inputs, expect in tests:
+                    res = self._run_test(prog, args, inputs, expect)
+                    print(
+                        "\033[92m.\033[0m" if res else "\033[91mX\033[0m", end="")
+                    self.results[student][q_name].append("PASS" if res else "FAIL")
         print()
 
     @staticmethod
