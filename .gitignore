@@ -6,3 +6,7 @@ result.csv
 .idea/
 
 .DS_Store
+
+*.xlsx
+
+*.csv

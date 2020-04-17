@@ -6,7 +6,7 @@ sys.path.append('tests')
 from assignment1 import tests
 
 
-SRC_DIR = "../0512182001_Fix_compile"
+SRC_DIR = "../Test"
 # SRC_DIR = "../0512182001"
 # SRC_DIR = "src_files"
 

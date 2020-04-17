@@ -27,8 +27,8 @@ q2_tests = [
          "Please enter a 3-digit number:\n555\nThe sorted number is: 555\n"),
     Test("106", "", [Input("Please enter a 3-digit number:", "106")],
          "Please enter a 3-digit number:\n106\nThe sorted number is: 016\n"),
-    Test("073", "", [Input("Please enter a 3-digit number:", "073")],
-         "Please enter a 3-digit number:\n073\nThis is not a 3-digit number!\n"),
+    # Test("073", "", [Input("Please enter a 3-digit number:", "073")],
+    #      "Please enter a 3-digit number:\n073\nThis is not a 3-digit number!\n"),
 ]
 
 q3_tests = [
@@ -36,8 +36,8 @@ q3_tests = [
          "Please enter the number of people in the room:\n-5\nThe number you entered is not positive!\n"),
     Test("100", "", [Input("Please enter the number of people in the room:", "100")],
          "Please enter the number of people in the room:\n100\nThe number of handshakes: 4950\n"),
-    Test("0", "", [Input("Please enter the number of people in the room:", "0")],
-         "Please enter the number of people in the room:\n0\nThe number you entered is not positive!\n"),
+    # Test("0", "", [Input("Please enter the number of people in the room:", "0")],
+    #      "Please enter the number of people in the room:\n0\nThe number you entered is not positive!\n"),
     Test("1", "", [Input("Please enter the number of people in the room:", "1")],
          "Please enter the number of people in the room:\n1\nThe number of handshakes: 0\n"),
     Test("74", "", [Input("Please enter the number of people in the room:", "74")],
